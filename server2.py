@@ -32,8 +32,15 @@ def create():
 
     return render_template("create.html")
 
-    gachi_name = request.form.get("name")
 
+
+@app.route('/view_gachis')
+def gachi_list():
+    """lists all gachis for that user(indiv user WIP)"""
+
+    gachi_name = request.form.get("gachi_name")
+
+    return render_template("gachis.html", gachi_name=gachi_name)
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point

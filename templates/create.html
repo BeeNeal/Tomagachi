@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Welcome your beastie into the world!</h1>
+<h1>Welcome your gachi into the world!</h1>
 
-<h2>What do you want to call them?</h2>
-
+<!-- <h2>What do you want to call them?</h2>
+ -->
 <!-- What do I want here? I want a form that collects user input of a name --> 
-<p><a href="/creation">Create a bud</a></p> 
-<!-- above "movies" goes to view route in server -->
+<form action="/view_gachis">
+	What's your bud's name? <input type="text" name="gachi_name">
+	<input type="submit">
+</form>
+<p><a href="/view_gachis">See your gachis</a></p> 
 
 <!-- <h2>Users</h2>
 <p><a href="/users">View all users</a></p>
