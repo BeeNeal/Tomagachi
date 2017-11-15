@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Welcome your beastie into the world!</h1>
+
+<h2>What do you want to call them?</h2>
+
+<!-- What do I want here? I want a form that collects user input of a name --> 
+<p><a href="/movies">View all movies</a></p> 
+<!-- above "movies" goes to view route in server -->
+
+<h2>Users</h2>
+<p><a href="/users">View all users</a></p>
+
+<form action='/logout'> 
+    <input type="submit" value="Log Out">
+</form>
+
+{% endblock %}
+
+<!-- these routes match the views on the server -->
