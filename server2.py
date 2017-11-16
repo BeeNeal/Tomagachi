@@ -6,6 +6,8 @@ from flask import (Flask, jsonify, render_template, redirect, request,
                    flash, session)
 from flask_debugtoolbar import DebugToolbarExtension
 
+from toma_class import Tomagachi, HappyTomagachi
+
 # from model import connect_to_db, db
 
 
@@ -19,6 +21,14 @@ app.secret_key = "ABC"
 app.jinja_env.undefined = StrictUndefined
 
 
+gachis = {
+    'ashkan': [Tomagachi('ash'), Tomagachi('kan')],
+    'brittany': [Tomagachi('brit')],
+    'ab1234152igjwjsglas': [Tomagachi('my bae')],
+    'gughaowegwioghaog': [Tomagachi('')]
+}
+
+
 @app.route('/')
 def index():
     """Homepage."""
@@ -26,21 +36,31 @@ def index():
     return render_template("homepage.html")
 
 
-@app.route('/creation')
-def create():
+@app.route('/gachi/create', methods=['GET'])
+def create_page():
     """creation page"""
 
     return render_template("create.html")
 
 
-
-@app.route('/view_gachis')
-def gachi_list():
-    """lists all gachis for that user(indiv user WIP)"""
+@app.route('/gachi/create', methods=['POST'])
+def create_post():
+    """creation page"""
 
     gachi_name = request.form.get("gachi_name")
 
-    return render_template("gachis.html", gachi_name=gachi_name)
+    gachi_instance = HappyTomagachi(gachi_name)
+    gachis.append(gachi_instance)
+
+    return redirect("/view_gachis")
+
+
+@app.route('/view_gachis')
+def gachi_list():
+    """lists all gachis that have been ever created"""
+
+    return render_template("gachis.html", gachis=gachis )
+
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point

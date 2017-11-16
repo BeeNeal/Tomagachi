@@ -32,18 +32,18 @@ class HappyTomagachi(Tomagachi):
     favorite_food = "pickles"
 
 
-name = raw_input("What's your Gachi's name?")
+# name = raw_input("What's your Gachi's name?")
 
-# task: try to make an instance tied to the user input
-
-
+# # task: try to make an instance tied to the user input
 
 
-zink = HappyTomagachi("Zink")
-gachi = raw_input("which Gachi's yours? ").lower()
-food_choice = raw_input("what do you want to feed your gachi ")
-if gachi == 'zink':
-    zink.eat(food_choice)
+
+
+# zink = HappyTomagachi("Zink")
+# gachi = raw_input("which Gachi's yours? ").lower()
+# food_choice = raw_input("what do you want to feed your gachi ")
+# if gachi == 'zink':
+#     zink.eat(food_choice)
 
 #this doesn't work because gachi is a string here, so doesn't act as instance
 # will have same problem with HTML

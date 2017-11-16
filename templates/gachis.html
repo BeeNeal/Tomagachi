@@ -3,9 +3,12 @@
 
 <h1>The gachis are happy to see you!</h1>
 
-<h2> {{ gachi_name }}</h2>
+{% for item in gachis %}
+    <h2>{{ item.name }}</h2>
+{% endfor %}
 
-<p> {{ gachi_name }}</p>
+
+<!-- <p> {{ gachis }}</p> -->
 <!-- <p><a href="/creation">Create a new bud?</a></p> 
 this link should go to the server view which renders the create.html
 
