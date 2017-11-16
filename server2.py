@@ -21,12 +21,7 @@ app.secret_key = "ABC"
 app.jinja_env.undefined = StrictUndefined
 
 
-gachis = {
-    'ashkan': [Tomagachi('ash'), Tomagachi('kan')],
-    'brittany': [Tomagachi('brit')],
-    'ab1234152igjwjsglas': [Tomagachi('my bae')],
-    'gughaowegwioghaog': [Tomagachi('')]
-}
+gachis = [Tomagachi('my first toma!')]
 
 
 @app.route('/')
