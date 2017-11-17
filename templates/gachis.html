@@ -3,32 +3,24 @@
 
 <h1>The gachis are happy to see you!</h1>
 
+<h2>Gachis in the Garden:<br></h2>
+
+<ul>
 {% for item in gachis %}
-    <h2>{{ item.name }}</h2>
+	<li>{{ item.name }}
+    <a href="/gachi/{{ item.name }}"</a>
+    </li>
 {% endfor %}
+</ul>
 
 <p><a href="/gachi/create">Add another to the pack?</a></p> 
 
 
-<!-- <p> {{ gachis }}</p> -->
-
-<h2> {{ gachi_name }}</h2>
 <body>
-<p> {{ gachi_name }}</p>
 </body>
-<!-- <p><a href="/creation">Create a new bud?</a></p> 
-this link should go to the server view which renders the create.html
 
-<p><a href="/view_gachis">Hangout with current gachis</a></p> 
- -->
-
-<!-- <h2>Users</h2>
-<p><a href="/users">View all users</a></p>
-
-<form action='/logout'> 
-    <input type="submit" value="Log Out">
-</form>
- -->
 {% endblock %}
 
-<!-- these routes match the views on the server -->
+<!-- task 1: make name links display indiv gachi info -->
+<!-- task *: store gachis to dictionary instead of list -->
+<!-- why doesn't the pre-instantiation link up? -->

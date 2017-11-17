@@ -33,14 +33,14 @@ def index():
 
 @app.route('/gachi/create', methods=['GET'])
 def create_page():
-    """creation page"""
+    """renders creation page"""
 
     return render_template("create.html")
 
 
 @app.route('/gachi/create', methods=['POST'])
 def create_post():
-    """creation page"""
+    """creates instance of gachi from user input"""
 
     gachi_name = request.form.get("gachi_name")
 
@@ -57,14 +57,22 @@ def gachi_list():
     return render_template("gachis.html", gachis=gachis )
 
 
+@app.route('/gachi/name')
+# The variable is passed from the URL into the function
+def indiv_gachi(gachi_name):
+    """individual gachi profile with feeding option"""
+
+    return render_template("gachi.html", gachis=gachis)
+
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point
     # that we invoke the DebugToolbarExtension
     app.debug = True
 
-    # connect_to_db(app)
 
     # Use the DebugToolbar
     DebugToolbarExtension(app)
 
     app.run(host="0.0.0.0")
+
+# Q: tamagochi show page vs tamagachi index <- list
