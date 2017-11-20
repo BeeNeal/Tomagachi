@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<h2>
+	{{ gachi.name }} says hello! <br>
+</h2>
+	<ul>
+		<li>motto: <b>{{ gachi.motto }} </b> </li>
+		<li>hunger: {{ gachi.hunger }}</li>
+	</ul>
+
+	<div>Your gachi looks hungry. Feed {{ gachi.name }}? 
+	</div>
+
+<!-- Can you at the click of a button, go to another page?
+task: have options to feed - go to feed screen
+play - go to play screen -->
+
+<p><a href="/gachi/create">Add another to the pack?</a></p> 
+<a href="/view_gachis">Back to the garden?</a>
+
+<body>
+</body>
+
+
+
+
+{% endblock %}
+
+<!-- gachis (rename) show list of gachis, be able to click on each gachi to send to
+gachi page which shows gachi profile -->
+
+<!-- task for this page: add info that corresponds to each gachi
+	I need to get the corresponding instance from the link to the page
+
+	pass gachi
+
+ -->

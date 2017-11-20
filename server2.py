@@ -54,7 +54,7 @@ def create_post():
 def gachi_list():
     """lists all gachis that have been ever created"""
 
-    return render_template("gachis.html", gachis=gachis )
+    return render_template("gachis.html", gachis=gachis)
 
 
 @app.route('/gachi/<gachi_name>')
@@ -62,7 +62,15 @@ def gachi_list():
 def indiv_gachi(gachi_name):
     """individual gachi profile with feeding option"""
 
-    return render_template("gachi.html", gachis=gachis)
+    for item in gachis:
+        if item.name == gachi_name:
+            gachi = item
+        # if item.hunger >= 20:
+        #     hunger =
+
+    return render_template("gachi.html", gachi=gachi)
+
+
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point
