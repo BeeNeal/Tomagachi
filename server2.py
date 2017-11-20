@@ -21,7 +21,7 @@ app.secret_key = "ABC"
 app.jinja_env.undefined = StrictUndefined
 
 
-gachis = [Tomagachi('my first toma!')]
+gachis = [HappyTomagachi("zeus"), HappyTomagachi('my first toma!'), HappyTomagachi('doc')]
 
 
 @app.route('/')
@@ -57,7 +57,7 @@ def gachi_list():
     return render_template("gachis.html", gachis=gachis )
 
 
-@app.route('/gachi/name')
+@app.route('/gachi/<gachi_name>')
 # The variable is passed from the URL into the function
 def indiv_gachi(gachi_name):
     """individual gachi profile with feeding option"""
@@ -76,3 +76,4 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0")
 
 # Q: tamagochi show page vs tamagachi index <- list
+

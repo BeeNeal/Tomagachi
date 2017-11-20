@@ -7,10 +7,13 @@
 
 <ul>
 {% for item in gachis %}
-	<li>{{ item.name }}
-    <a href="/gachi/{{ item.name }}"</a>
+	<li>
+		<a href="/gachi/{{ item.name }}"</a>{{ item.name }} 
     </li>
 {% endfor %}
+<!-- task: fix this link so links to correct name, not all shifted down- complete! -->
+<!-- next task: make links link to correct page- c -->
+<!-- eventual task: add image icon next to name -->
 </ul>
 
 <p><a href="/gachi/create">Add another to the pack?</a></p> 
@@ -21,6 +24,3 @@
 
 {% endblock %}
 
-<!-- task 1: make name links display indiv gachi info -->
-<!-- task *: store gachis to dictionary instead of list -->
-<!-- why doesn't the pre-instantiation link up? -->
