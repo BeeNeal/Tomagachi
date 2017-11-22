@@ -34,30 +34,9 @@ class HappyTomagachi(Tomagachi):
 
 # name = raw_input("What's your Gachi's name?")
 
-# # task: try to make an instance tied to the user input
+# # task: random int image
 
 
-
-
-# zink = HappyTomagachi("Zink")
-# gachi = raw_input("which Gachi's yours? ").lower()
-# food_choice = raw_input("what do you want to feed your gachi ")
-# if gachi == 'zink':
-#     zink.eat(food_choice)
-
-#this doesn't work because gachi is a string here, so doesn't act as instance
-# will have same problem with HTML
-
-# problem - raw input to have user feed - would be better to have dropdown set of options
-# let's knock out the raw input tonight, start on the html tomorrow!
-
-
-# Problem: favorite_food of an instance not linking to subclass's favorite_food
-# solution: use self in parent
-
-
-# IDEAS:
-    # Can I set a favorite food per instance, then if eat("favorite food") subtract more hunger?
 
 
 
