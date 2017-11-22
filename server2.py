@@ -6,7 +6,7 @@ from flask import (Flask, jsonify, render_template, redirect, request,
                    flash, session)
 from flask_debugtoolbar import DebugToolbarExtension
 
-from toma_class import Tomagachi, HappyTomagachi
+from toma_class import *
 
 # from model import connect_to_db, db
 
@@ -16,12 +16,12 @@ app = Flask(__name__)
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = "ABC"
 
-# Normally, if you use an undefined variable in Jinja2, it fails silently.
-# This is horrible. This fixes that, so instead, it raises an error.
+# Normally, if you use an undefined variable in Jinja2, it fails silently. This fixes
+# that, so instead, it raises an error.
 app.jinja_env.undefined = StrictUndefined
 
 
-gachis = [HappyTomagachi("zeus"), HappyTomagachi('my first toma!'), HappyTomagachi('doc')]
+gachis = [HappyTomagachi("Zeus"), HappyTomagachi('my first toma!'), HappyTomagachi('doc')]
 
 
 @app.route('/')
@@ -65,11 +65,19 @@ def indiv_gachi(gachi_name):
     for item in gachis:
         if item.name == gachi_name:
             gachi = item
-        # if item.hunger >= 20:
-        #     hunger =
 
     return render_template("gachi.html", gachi=gachi)
 
+
+# task: pass gachi from gachi page to feed upon form submission
+@app.route('/gachi/feed')
+def feed(gachi):
+    """decreases gachi hunger"""
+
+    feed = request.args.get("option")
+    if feed == "yes":
+        print gachis
+        gachi.eat(gachi)
 
 
 if __name__ == "__main__":
@@ -84,4 +92,3 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0")
 
 # Q: tamagochi show page vs tamagachi index <- list
-
