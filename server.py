@@ -68,16 +68,21 @@ def indiv_gachi(gachi_name):
 
     return render_template("gachi.html", gachi=gachi)
 
-
 # task: pass gachi from gachi page to feed upon form submission
-@app.route('/gachi/feed')
-def feed(gachi):
+@app.route('/gachi/<gachi_name>/feed', methods=['POST'])
+def feed(gachi_name):
     """decreases gachi hunger"""
 
-    feed = request.args.get("option")
+    feed = request.form.get("option")
+
+    for item in gachis:
+        if item.name == gachi_name:
+            gachi = item
+
     if feed == "yes":
-        print gachis
-        gachi.eat(gachi)
+        gachi.eat()
+
+    return redirect("/gachi/{}".format(gachi_name))
 
 
 if __name__ == "__main__":
