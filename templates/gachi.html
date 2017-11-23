@@ -12,9 +12,7 @@
 	</ul>
 
 	<div>Your gachi looks hungry. Feed {{ gachi.name }}? 
-
-
-		<form action='/gachi/feed'>
+		<form action='/gachi/{{ gachi.name }}/feed' method='POST'>
 			<input type="radio" name="option" value="yes" checked>Yes <br>
 			<input type="radio" name="option" value="no">No <br>
 			<input type="submit" value="Go!">
