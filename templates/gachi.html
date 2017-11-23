@@ -11,10 +11,9 @@
 		<li>hunger: {{ gachi.hunger }}</li>
 	</ul>
 
-	<div>Your gachi looks hungry. Feed {{ gachi.name }}? 
+	<div>Your gachi looks hungry. What do you want to feed {{ gachi.name }}? 
 		<form action='/gachi/{{ gachi.name }}/feed' method='POST'>
-			<input type="radio" name="option" value="yes" checked>Yes <br>
-			<input type="radio" name="option" value="no">No <br>
+			<input type="text" name="food_type"> <br>
 			<input type="submit" value="Go!">
 		</form>
 	</div>

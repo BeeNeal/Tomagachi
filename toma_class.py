@@ -18,10 +18,10 @@ class Tomagachi(object):
             self.hunger -= 2
         elif food == "vindaloo":
             self.hunger -= 5
-            print self.hunger
         elif food == self.favorite_food:
-            print "Yummo!"
             self.hunger = 0
+        else:
+            self.hunger += 1
         return self.hunger
 
 

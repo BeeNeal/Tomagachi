@@ -79,8 +79,11 @@ def feed(gachi_name):
         if item.name == gachi_name:
             gachi = item
 
-    if feed == "yes":
-        gachi.eat()
+    food_type = request.form.get("food_type")
+    food_type.lower()
+
+    #if feed == "yes":
+    gachi.eat(food_type)
 
     return redirect("/gachi/{}".format(gachi_name))
 
