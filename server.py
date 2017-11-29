@@ -21,7 +21,7 @@ app.secret_key = "ABC"
 app.jinja_env.undefined = StrictUndefined
 
 
-gachis = [HappyTomagachi("Zeus"), HappyTomagachi('my first toma!'), HappyTomagachi('doc')]
+gachis = [HappyTomagachi('Zeus'), HappyTomagachi('my first toma!'), HappyTomagachi('doc')]
 
 
 @app.route('/')
@@ -52,7 +52,7 @@ def create_post():
 
 @app.route('/view_gachis')
 def gachi_list():
-    """lists all gachis that have been ever created"""
+    """lists all gachis that have ever been created"""
 
     return render_template("gachis.html", gachis=gachis)
 
@@ -68,7 +68,7 @@ def indiv_gachi(gachi_name):
 
     return render_template("gachi.html", gachi=gachi)
 
-# task: pass gachi from gachi page to feed upon form submission
+
 @app.route('/gachi/<gachi_name>/feed', methods=['POST'])
 def feed(gachi_name):
     """decreases gachi hunger"""
@@ -80,9 +80,7 @@ def feed(gachi_name):
             gachi = item
 
     food_type = request.form.get("food_type")
-    food_type.lower()
 
-    #if feed == "yes":
     gachi.eat(food_type)
 
     return redirect("/gachi/{}".format(gachi_name))
