@@ -2,7 +2,7 @@
 images = ["http://www.doglib.com/wp-content/uploads/dw/dwarf-smallest-breeds-of-cats.jpg",
           "https://i.pinimg.com/736x/e4/45/2c/e4452cc8ef5d6dac58d8b0b0aa290ac8--adorable-kittens-cute-kitty.jpg",
           "https://i.pinimg.com/736x/23/94/6b/23946be92b6c0d0da21bf4f9ec0fa637--mystique-animal-pictures.jpg",
-          "https://i.pinimg.com/736x/13/b8/e6/13b8e6b21836fd797fbc6baeb6c24a7c--cat-fishing-cute-tigers.jpg"
+          "https://i.pinimg.com/736x/13/b8/e6/13b8e6b21836fd797fbc6baeb6c24a7c--cat-fishing-cute-tigers.jpg",
           "http://slappedham.com/wp-content/uploads/2014/06/Cute-fluffy-dog.jpg"]
 
 
