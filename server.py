@@ -8,8 +8,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 from toma_class import *
 
-# from model import connect_to_db, db
-
+from model import connect_to_db, db, User, Tomagachi
 
 app = Flask(__name__)
 
@@ -21,7 +20,9 @@ app.secret_key = "ABC"
 app.jinja_env.undefined = StrictUndefined
 
 
-gachis = [HappyTomagachi('Zeus'), HappyTomagachi('my first toma!'), HappyTomagachi('doc')]
+# gachis = [HappyTomagachi('Zeus'), HappyTomagachi('my first toma!'), HappyTomagachi('doc')]
+joy = User(first_name='Joy', last_name='Neal', email='jgwenn@gmail.com',
+           password='abc123')
 
 
 @app.route('/')
@@ -29,6 +30,31 @@ def index():
     """Homepage."""
 
     return render_template("homepage.html")
+
+
+@app.route('/login', methods=['POST'])
+def registration():
+    """stores email/password to DB"""
+
+    email = request.form.get("login_email")
+    password = request.form.get("login_password")
+    #how to store these to DB? -> create user instance
+    #if email in DB, add to session to login
+    # if not in DB, add to DB, add to session to login
+
+#task, query a user's email
+    if email == users.query.get() 
+
+    else:
+        new_user = User(name='Auden', color='grey')
+        db.session.add(auden)
+        db.session.commit()
+
+@app.route('/login')
+def login():
+    """display login page"""
+
+    return render_template('login.html')
 
 
 @app.route('/gachi/create', methods=['GET'])

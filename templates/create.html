@@ -3,24 +3,10 @@
 
 <h1>Welcome your gachi into the world!</h1>
 
-<!-- <h2>What do you want to call them?</h2>
- -->
-<!-- What do I want here? I want a form that collects user input of a name --> 
 <form action="/gachi/create" method='POST'>
 	What's your bud's name? <input type="text" name="gachi_name" >
 	<input type="submit">
 </form>
 <p><a href="/view_gachis">See your gachis</a></p> 
 
-<!-- <h2>Users</h2>
-<p><a href="/users">View all users</a></p>
-
-<form action='/logout'> 
-    <input type="submit" value="Log Out">
-</form> -->
-
 {% endblock %}
-
-<!-- these routes match the views on the server -->
-
-<!-- current Q: why is create.html being rendered, not homepage?? -->
