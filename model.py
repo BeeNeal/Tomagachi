@@ -14,8 +14,8 @@ class User(db.Model):
     user_id = db.Column(db.Integer,
                         autoincrement=True,
                         primary_key=True)
-    first_name = db.Column(db.String(64), nullable=False)
-    last_name = db.Column(db.String(64), nullable=False)
+    first_name = db.Column(db.String(64), nullable=True)
+    last_name = db.Column(db.String(64), nullable=True)
     email = db.Column(db.String(64), nullable=True)
     password = db.Column(db.String(64), nullable=True)
     owned = db.relationship('Tomagachi', backref=db.backref('owned', lazy=True))
@@ -35,7 +35,7 @@ class Tomagachi(db.Model):
                          autoincrement=True,
                          primary_key=True)
     name = db.Column(db.String(64), nullable=True)
-    hunger = db.Column(db.Integer(4), nullable=False, default=30)
+    hunger = db.Column(db.Integer, nullable=False, default=30)
     motto = db.Column(db.String(64), nullable=True, default=
                       "Every day is the best day!")
     favorite_food = db.Column(db.String(64), nullable=True, default='pickles')
@@ -45,8 +45,7 @@ class Tomagachi(db.Model):
 
         return "<Gachi gachi_id= {} \n name={}>" .format(self.gachi_id, self.name)
 
-
-   def eat(self, food="grub"):
+    def eat(self, food="grub"):
         """feeds toma - hunger decreases based on type/amount of food"""
 
         if food == "grub":
@@ -65,7 +64,6 @@ class Tomagachi(db.Model):
 def connect_to_db(app):
     """Connect the database to our Flask app."""
 
-# Configure to use our PostgreSQL database
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///tomagachis'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.app = app
@@ -73,9 +71,6 @@ def connect_to_db(app):
 
 
 if __name__ == "__main__":
-# As a convenience, if we run this module interactively, it will
-# leave you in a state of being able to work with the database
-# directly.
 
     from server import app
     connect_to_db(app)

@@ -12,11 +12,8 @@ from model import connect_to_db, db, User, Tomagachi
 
 app = Flask(__name__)
 
-# Required to use Flask sessions and the debug toolbar
 app.secret_key = "ABC"
 
-# Normally, if you use an undefined variable in Jinja2, it fails silently. This fixes
-# that, so instead, it raises an error.
 app.jinja_env.undefined = StrictUndefined
 
 
@@ -31,30 +28,56 @@ def index():
 
     return render_template("homepage.html")
 
+@app.route('/registration')
+def display_registration_form():
+    """displays registration form"""
 
-@app.route('/login', methods=['POST'])
+    return render_template("registration_form.html")
+
+
+@app.route('/registration', methods=['POST'])
 def registration():
-    """stores email/password to DB"""
+    """Stores user info to DB"""
 
     email = request.form.get("login_email")
     password = request.form.get("login_password")
+    password_match = request.form.get("login_password2")
+    f_name = request.form.get("first_name")
+    l_name = request.form.get("last_name")
+
+    email_status = User.query.filter(User.email == email).first()
+
+    if email_status is None and password == password_match:
+        new_user = User(email=email, password=password,
+                        first_name=f_name, last_name=l_name)
+    db.session.add(new_user)
+    db.session.commit()
+
+# WIP
+# @app.route('/login', methods=['POST'])
+# def login():
+#     """stores email/password to DB"""
+
+#     email = request.form.get("login_email")
+#     password = request.form.get("login_password")
     #how to store these to DB? -> create user instance
     #if email in DB, add to session to login
     # if not in DB, add to DB, add to session to login
 
 #task, query a user's email
-    if email == users.query.get() 
+    # if email == User.query.get(email):
 
-    else:
-        new_user = User(name='Auden', color='grey')
-        db.session.add(auden)
-        db.session.commit()
 
-@app.route('/login')
-def login():
-    """display login page"""
+    # else:
+    #     new_user = User(email=email, password=password)
+    #     db.session.add(auden)
+    #     db.session.commit()
 
-    return render_template('login.html')
+# @app.route('/login')
+# def login():
+#     """display login page"""
+
+#     return render_template('login.html')
 
 
 @app.route('/gachi/create', methods=['GET'])
