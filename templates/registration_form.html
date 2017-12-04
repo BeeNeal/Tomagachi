@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<h2>
+	Welcome to Tomagachi World! Enter your email and password to register <br>
+</h2>
+
+
+<body>
+	<form action="/registration" method='POST'>
+		First Name: <input type='text' name='first_name'><br>
+		Last Name: <input type='text' name='last'><br>
+		Email Address:<br><input type='text' name='login_email'><br>
+		Password:<br><input type='password' name='login_password'><br>
+		re-enter Password:<br><input type='password' name='login_password2'><br>
+		<input type="submit" value="Register">
+	</form>
+
+</body>
+
+
+
+{% endblock %}
