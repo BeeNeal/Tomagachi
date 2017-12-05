@@ -50,9 +50,10 @@ def registration():
     if email_status is None and password == password_match:
         new_user = User(email=email, password=password,
                         first_name=f_name, last_name=l_name)
-    db.session.add(new_user)
-    db.session.commit()
+        db.session.add(new_user)
+        db.session.commit()
 
+    flash("Registration for User {} successful") .format(email)
 # WIP
 # @app.route('/login', methods=['POST'])
 # def login():

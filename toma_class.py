@@ -6,6 +6,21 @@ images = ["http://www.doglib.com/wp-content/uploads/dw/dwarf-smallest-breeds-of-
           "http://slappedham.com/wp-content/uploads/2014/06/Cute-fluffy-dog.jpg"]
 
 
+class User(object):
+    """User of Tomagachi website."""
+
+    def __init__(self, first_name, last_name, email, password):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email = email
+        self.password = password
+
+    def __repr__(self):
+        """provide representation when printed"""
+
+        return "<User user_id={} email={}>" .format(self.user_id, self.email)
+
+
 class Tomagachi(object):
 
     def __init__(self, name):
@@ -16,7 +31,8 @@ class Tomagachi(object):
         self.hunger = 20
         self.temperament = "mild"
         self.image = images.pop()
-
+        self.motto = "Every day is the best day!"
+        self.favorite_food = "pickles"
 
     def eat(self, food="grub"):
         """feeds toma - hunger decreases based on type/amount of food"""
@@ -34,13 +50,6 @@ class Tomagachi(object):
         return self.hunger
 
 
-
-
-class HappyTomagachi(Tomagachi):
-    """Happy Tomagachi"""
-
-    motto = "Every day is the best day!"
-    favorite_food = "pickles"
 
 
 
