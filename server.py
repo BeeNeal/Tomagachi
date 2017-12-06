@@ -6,7 +6,7 @@ from flask import (Flask, jsonify, render_template, redirect, request,
                    flash, session)
 from flask_debugtoolbar import DebugToolbarExtension
 
-from toma_class import *
+# from toma_class import *
 
 from model import connect_to_db, db, User, Tomagachi
 
