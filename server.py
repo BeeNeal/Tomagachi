@@ -47,7 +47,7 @@ def registration():
 
     email_status = User.query.filter(User.email == email).first()
 
-    if email_status is None and password == password_match:
+    if email_status is None:
         new_user = User(email=email, password=password,
                         first_name=f_name, last_name=l_name)
         db.session.add(new_user)
